@@ -1,0 +1,30 @@
+{
+  "name": "discord-components-v2-helper",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "componentsV2",
+    "helper"
+  ],
+  "author": "Zeikrom",
+  "license": "MIT",
+  "description": "Helpers for componentsV2 from Discord.js V14+",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "discord.js": "^14.22.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}
