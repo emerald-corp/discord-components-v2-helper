@@ -4,8 +4,8 @@ import { SectionProps } from "../types"
 export function Section(props: SectionProps): SectionBuilder {
   const section = new SectionBuilder()
 
-  if (props.textcomponents && Array.isArray(props.textcomponents)) {
-    props.textcomponents.forEach((component) => {
+  if (props.textComponents && Array.isArray(props.textComponents)) {
+    props.textComponents.forEach((component) => {
       section.addTextDisplayComponents(component)
     })
   }

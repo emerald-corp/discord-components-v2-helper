@@ -48,12 +48,12 @@ export type StringSelectorProps = {
 
 export type SectionProps =
   | {
-      textcomponents: TextDisplayBuilder[]
+      textComponents: TextDisplayBuilder[]
       buttonAccessory?: ButtonBuilder
       thumbnailAccessory: ThumbnailBuilder
     }
   | {
-      textcomponents: TextDisplayBuilder[]
+      textComponents: TextDisplayBuilder[]
       buttonAccessory: ButtonBuilder
       thumbnailAccessory?: ThumbnailBuilder
     }
