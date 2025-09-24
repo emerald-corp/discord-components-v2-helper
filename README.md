@@ -101,4 +101,4 @@ See [src/types.ts](src/types.ts) for detailed prop types.
 
 ## License
 
-This project is licensed under the [MIT License]()
+This project is licensed under the [MIT License](https://github.com/emerald-corp/discord-components-v2-helper/blob/main/LICENSE)
