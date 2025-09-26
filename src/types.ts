@@ -26,14 +26,23 @@ export type ContainerProps = {
 
 type emojiProps = { id?: string; name: string }
 
-export type ButtonProps = {
-  customId?: string
-  label?: string
-  emoji?: emojiProps
-  disabled?: boolean
-  style?: ButtonStyle
-  link?: string
-}
+export type ButtonProps =
+  | {
+      customId?: string
+      label: string
+      emoji?: emojiProps
+      disabled?: boolean
+      style: ButtonStyle.Link
+      link: string
+    }
+  | {
+      customId: string
+      label?: string
+      emoji?: emojiProps
+      disabled?: boolean
+      style: Exclude<ButtonStyle, ButtonStyle.Link>
+      link?: never
+    }
 
 export type StringSelectorProps = {
   customId: string
@@ -42,7 +51,8 @@ export type StringSelectorProps = {
     label: string
     value: string
     description?: string
-    emoji: emojiProps
+    emoji?: emojiProps
+    default?: boolean
   }[]
 }
 
@@ -58,7 +68,7 @@ export type SectionProps =
       thumbnailAccessory?: ThumbnailBuilder
     }
 
-export type MediaProps = [ThumbnailProps]
+export type MediaProps = ThumbnailProps[]
 
 export type ThumbnailProps = {
   media: { url: string }

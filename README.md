@@ -51,41 +51,6 @@ const myContainer = Container({
 })
 ```
 
-Or even use it like this:
-
-```ts
-import {
-  Button,
-  Container,
-  Section,
-  Separator,
-  Text,
-} from "discord-components-v2-helper"
-import { SeparatorSpacingSize, ButtonStyle } from "discord.js"
-
-const container = Container({
-  [
-    Text('Hello this is the second example!'),
-    Separator(SeparatorSpacingSize.small),
-    Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s'),
-    Separator(SeparatorSpacingSize.large),
-    Section({
-      textComponents: [Text('In the side here is a button.')],
-      buttonAccessory: Button({
-        customId: 'this_is_custom_id',
-        label: 'Test Button',
-        emoji: { name: '🎲' },
-        disabled: false,
-        style: ButtonStyle.primary
-      })
-    }),
-    Separator(SeparatorSpacingSize.small),
-    Text('-# Enjoy this helper!')
-  ],
-  [0, 255, 0]
-})
-```
-
 ## Components
 
 - [`Button(props)`](src/components/Button.ts): Create a Discord button.
