@@ -17,7 +17,8 @@ export function Button(props: ButtonProps): ButtonBuilder {
   if (props.customId) button.setCustomId(props.customId)
   if (props.label) button.setLabel(props.label)
   if (props.emoji) button.setEmoji(props.emoji)
-  if (typeof props.disabled === "boolean") button.setDisabled(props.disabled)
+  if (typeof props.disabled === "boolean")
+    button.setDisabled(props.disabled || false)
 
   let handled = false
   for (const [style, handler] of buttonStyleMap) {
