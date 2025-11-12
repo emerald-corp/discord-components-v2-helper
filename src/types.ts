@@ -19,12 +19,12 @@ type ComponentsContainerProps =
 
 type RGBColor = [number, number, number]
 
+type emojiProps = { id?: string; name: string }
+
 export type ContainerProps = {
   components: ComponentsContainerProps[]
   accentColor?: RGBColor
 }
-
-type emojiProps = { id?: string; name: string }
 
 export type ButtonProps =
   | {
@@ -54,6 +54,10 @@ export type StringSelectorProps = {
     emoji?: emojiProps
     default?: boolean
   }[]
+  minValues?: number
+  maxValues?: number
+  disabled?: boolean
+  required?: boolean
 }
 
 export type SectionProps =
@@ -68,9 +72,9 @@ export type SectionProps =
       thumbnailAccessory?: ThumbnailBuilder
     }
 
-export type MediaProps = ThumbnailProps[]
-
 export type ThumbnailProps = {
   media: { url: string }
   spoiler?: boolean
 }
+
+export type MediaProps = ThumbnailProps[]
