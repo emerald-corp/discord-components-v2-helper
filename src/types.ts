@@ -6,7 +6,10 @@ import {
   SeparatorBuilder,
   StringSelectMenuBuilder,
   TextDisplayBuilder,
+  TextInputBuilder,
+  TextInputStyle,
   ThumbnailBuilder,
+  FileUploadBuilder,
 } from "discord.js"
 
 type ComponentsContainerProps =
@@ -78,3 +81,27 @@ export type ThumbnailProps = {
 }
 
 export type MediaProps = ThumbnailProps[]
+
+export type TextInputProps = {
+  customId: string
+  label: string
+  style: TextInputStyle
+  placeholder?: string
+  value?: string
+  minLength?: number
+  maxLength?: number
+  required?: boolean
+}
+
+export type ModalComponentInput = {
+  component: TextInputBuilder | StringSelectMenuBuilder | FileUploadBuilder
+  label: string
+  description?: string
+}
+
+export type ModalProps = {
+  customId: string
+  title: string
+  description?: string[]
+  components: ModalComponentInput[]
+}
