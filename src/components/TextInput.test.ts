@@ -5,20 +5,17 @@ describe("TextInput component", () => {
   test("should create a text input with required properties", () => {
     const textInput = TextInput({
       customId: "test-input",
-      label: "Test Input",
       style: TextInputStyle.Short,
     })
 
     expect(textInput.data.type).toBe(4) // 4 is the type for text inputs
     expect(textInput.data.custom_id).toBe("test-input")
-    expect(textInput.data.label).toBe("Test Input")
     expect(textInput.data.style).toBe(TextInputStyle.Short)
   })
 
   test("should create a paragraph style text input", () => {
     const textInput = TextInput({
       customId: "paragraph-input",
-      label: "Description",
       style: TextInputStyle.Paragraph,
     })
 
@@ -29,7 +26,6 @@ describe("TextInput component", () => {
   test("should create a text input with optional properties", () => {
     const textInput = TextInput({
       customId: "full-input",
-      label: "Full Input",
       style: TextInputStyle.Short,
       placeholder: "Enter text here...",
       value: "Default value",
@@ -49,7 +45,6 @@ describe("TextInput component", () => {
   test("should create an optional text input", () => {
     const textInput = TextInput({
       customId: "optional-input",
-      label: "Optional Input",
       style: TextInputStyle.Short,
       required: false,
     })
@@ -60,7 +55,6 @@ describe("TextInput component", () => {
   test("should handle minLength of 0", () => {
     const textInput = TextInput({
       customId: "min-zero",
-      label: "Min Zero",
       style: TextInputStyle.Short,
       minLength: 0,
     })
@@ -71,7 +65,6 @@ describe("TextInput component", () => {
   test("should handle maxLength properly", () => {
     const textInput = TextInput({
       customId: "max-test",
-      label: "Max Test",
       style: TextInputStyle.Paragraph,
       maxLength: 4000,
     })

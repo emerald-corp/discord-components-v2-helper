@@ -19,7 +19,6 @@ describe("Modal component", () => {
   test("should create a modal with one text input", () => {
     const textInput = TextInput({
       customId: "username-input",
-      label: "Username",
       style: TextInputStyle.Short,
     })
 
@@ -45,19 +44,16 @@ describe("Modal component", () => {
   test("should create a modal with multiple text inputs", () => {
     const nameInput = TextInput({
       customId: "name-input",
-      label: "Name",
       style: TextInputStyle.Short,
     })
 
     const emailInput = TextInput({
       customId: "email-input",
-      label: "Email",
       style: TextInputStyle.Short,
     })
 
     const messageInput = TextInput({
       customId: "message-input",
-      label: "Message",
       style: TextInputStyle.Paragraph,
     })
 
@@ -84,13 +80,11 @@ describe("Modal component", () => {
   test("should handle text inputs with various configurations", () => {
     const simpleInput = TextInput({
       customId: "simple",
-      label: "Simple",
       style: TextInputStyle.Short,
     })
 
     const complexInput = TextInput({
       customId: "complex",
-      label: "Complex",
       style: TextInputStyle.Paragraph,
       placeholder: "Enter details...",
       minLength: 10,
@@ -168,7 +162,6 @@ describe("Modal component", () => {
   test("should create modal with mixed component types", () => {
     const textInput = TextInput({
       customId: "title",
-      label: "Title",
       style: TextInputStyle.Short,
     })
 
@@ -199,7 +192,6 @@ describe("Modal component", () => {
   test("should add modal description as TextDisplay components", () => {
     const textInput = TextInput({
       customId: "input",
-      label: "Input",
       style: TextInputStyle.Short,
     })
 

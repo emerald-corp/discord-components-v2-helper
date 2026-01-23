@@ -84,7 +84,6 @@ export type MediaProps = ThumbnailProps[]
 
 export type TextInputProps = {
   customId: string
-  label: string
   style: TextInputStyle
   placeholder?: string
   value?: string
