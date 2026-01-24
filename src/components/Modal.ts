@@ -20,12 +20,27 @@ export function Modal(props: ModalProps): ModalBuilder {
     if (input.description) label.setDescription(input.description)
 
     // Route to the appropriate setter based on component type
-    if (input.component instanceof TextInputBuilder) {
-      label.setTextInputComponent(input.component)
-    } else if (input.component instanceof StringSelectMenuBuilder) {
-      label.setStringSelectMenuComponent(input.component)
-    } else if (input.component instanceof FileUploadBuilder) {
-      label.setFileUploadComponent(input.component)
+    // We check inputs broadly to support different discord.js instances (dependency resolution issues)
+    const isTextInput =
+      input.component instanceof TextInputBuilder ||
+      input.component.constructor.name === "TextInputBuilder"
+
+    const isStringSelect =
+      input.component instanceof StringSelectMenuBuilder ||
+      input.component.constructor.name === "StringSelectMenuBuilder"
+
+    const isFileUpload =
+      input.component instanceof FileUploadBuilder ||
+      input.component.constructor.name === "FileUploadBuilder"
+
+    if (isTextInput) {
+      label.setTextInputComponent(input.component as TextInputBuilder)
+    } else if (isStringSelect) {
+      label.setStringSelectMenuComponent(
+        input.component as StringSelectMenuBuilder,
+      )
+    } else if (isFileUpload) {
+      label.setFileUploadComponent(input.component as FileUploadBuilder)
     }
 
     return label
@@ -34,7 +49,12 @@ export function Modal(props: ModalProps): ModalBuilder {
   modal.addLabelComponents(...labels)
 
   if (props.description) {
-    const textDisplays = props.description.map((desc) =>
+    // If user passes a string, wrap it in array. If array, use as is.
+    // This supports both single string prop and multiple paragraphs.
+    const descriptions =
+      Array.isArray(props.description) ? props.description : [props.description]
+
+    const textDisplays = descriptions.map((desc) =>
       new TextDisplayBuilder().setContent(desc),
     )
     modal.addTextDisplayComponents(...textDisplays)

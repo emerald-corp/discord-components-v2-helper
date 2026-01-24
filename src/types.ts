@@ -101,6 +101,6 @@ export type ModalComponentInput = {
 export type ModalProps = {
   customId: string
   title: string
-  description?: string[]
+  description?: string[] | string
   components: ModalComponentInput[]
 }
