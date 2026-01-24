@@ -4,16 +4,25 @@ import { TextInput } from "./TextInput"
 import { StringSelector } from "./StringSelector"
 
 describe("Modal component", () => {
-  test("should create a modal with required properties", () => {
+  test("should create a basic valid modal", () => {
     const modal = Modal({
       customId: "test-modal",
       title: "Test Modal",
-      components: [],
+      components: [
+        {
+          component: TextInput({
+            customId: "test-input",
+            style: TextInputStyle.Short,
+          }),
+          label: "Test Label",
+        },
+      ],
     })
 
     expect(modal.data.custom_id).toBe("test-modal")
     expect(modal.data.title).toBe("Test Modal")
-    expect(modal.components).toHaveLength(0)
+    expect(modal.components).toHaveLength(1)
+    expect(() => modal.toJSON()).not.toThrow()
   })
 
   test("should create a modal with one text input", () => {
@@ -39,6 +48,7 @@ describe("Modal component", () => {
     expect(modal.components).toHaveLength(1)
     // Modal components are now LabelBuilders
     expect(modal.components[0].data.type).toBe(18) // Label type
+    expect(() => modal.toJSON()).not.toThrow()
   })
 
   test("should create a modal with multiple text inputs", () => {
@@ -74,6 +84,7 @@ describe("Modal component", () => {
     // Each component should be a LabelBuilder
     modal.components.forEach((component) => {
       expect(component.data.type).toBe(18) // Label type
+      expect(() => modal.toJSON()).not.toThrow()
     })
   })
 
@@ -109,6 +120,7 @@ describe("Modal component", () => {
     // Verify labels are wrapping the inputs
     expect(modal.components[0].data.type).toBe(18)
     expect(modal.components[1].data.type).toBe(18)
+    expect(() => modal.toJSON()).not.toThrow()
   })
 
   test("should create modal with StringSelectMenu component", () => {
@@ -136,6 +148,7 @@ describe("Modal component", () => {
 
     expect(modal.components).toHaveLength(1)
     expect(modal.components[0].data.type).toBe(18) // Label type
+    expect(() => modal.toJSON()).not.toThrow()
   })
 
   test("should create modal with FileUpload component", () => {
@@ -157,6 +170,7 @@ describe("Modal component", () => {
 
     expect(modal.components).toHaveLength(1)
     expect(modal.components[0].data.type).toBe(18) // Label type
+    expect(() => modal.toJSON()).not.toThrow()
   })
 
   test("should create modal with mixed component types", () => {
@@ -186,6 +200,7 @@ describe("Modal component", () => {
     expect(modal.components).toHaveLength(3)
     modal.components.forEach((component) => {
       expect(component.data.type).toBe(18)
+      expect(() => modal.toJSON()).not.toThrow()
     })
   })
 
@@ -204,6 +219,7 @@ describe("Modal component", () => {
 
     expect(modal.components).toHaveLength(3) // 1 label + 2 text displays
     // Text displays should come after the label components
+    expect(() => modal.toJSON()).not.toThrow()
     expect(modal.components[1].data.type).toBe(10) // TextDisplay type
     expect(modal.components[2].data.type).toBe(10) // TextDisplay type
   })

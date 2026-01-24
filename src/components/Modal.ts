@@ -15,9 +15,9 @@ export function Modal(props: ModalProps): ModalBuilder {
 
   // Wrap each component in a LabelBuilder with appropriate setter
   const labels = props.components.map((input) => {
-    const label = new LabelBuilder()
-      .setLabel(input.label)
-      .setDescription(input.description || "")
+    const label = new LabelBuilder().setLabel(input.label)
+
+    if (input.description) label.setDescription(input.description)
 
     // Route to the appropriate setter based on component type
     if (input.component instanceof TextInputBuilder) {
